@@ -9,3 +9,9 @@ for num, element in enumerate(x):
 
 # Example with While loop:
 
+i = 0
+while True:
+    print("hey this is an example of a while loop", i)
+    i += 1
+    if i == 10:
+        break
