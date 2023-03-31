@@ -49,3 +49,11 @@ print(type(r3))
 print(tuple(r3), type(r3))
 
 print("____________________________________________________________________")
+
+# An example of Variable Unpacking operations:
+
+x = (1, 2, 3, 4, 5, 6)
+print("Let's 'unpack' 'x':")
+print(*x)  # The '*' will unpack the items in the list, instead of printing the list.
+print("\n" + "Now let's compare the above to simply printing 'x':")
+print(x)
