@@ -1,20 +1,30 @@
-# Import os library.
-import os
-
-import sys
+import time
 import pandas as pd
+import pyexcel as p
+
+start = time.time()
 
 
-# Function to print and amend working directory.
-def WorkingDirectory():
-    print("Current working directory is:", os.getcwd())
-    # os.chdir("./Modules/PythonRepo")
-    print("Amended working directory is:", os.getcwd())
+def pandas_csv():  # Reading a CSV file with Pandas...
+    csvfile = pd.read_csv("workbook.csv")
+    print(csvfile.head(5).dtypes.to_string())
+    csvfile.to_excel("../workbooktemp.xlsx", sheet_name = "test", index = False)
+
+def pyexcel_csv():  # Reading a CSV file with PyExcel...
+    sheet = p.get_sheet(file_name="../Automobile.csv")
+    sheet.row += ["This", "row", "is", "for", "testing", "purposes"]
+    sheet.column += ["Test Col"]
+    print(sheet)
+
+def pyexcel_csv():  # Reading a CSV file with PyExcel...
+    sheet = p.get_sheet(file_name="../Automobile.csv")
+    sheet.row += ["This", "row", "is", "for", "testing", "purposes"]
+    sheet.column += ["Test Col"]
+    print(sheet)
 
 
-# Call WorkingDirectory()
-WorkingDirectory()
+pandas_csv()
 
-# Define and print "workbook.csv".
-csvfile = pd.read_csv("workbook.csv")
-print(csvfile.head().to_string())
+end = time.time()
+
+print("Execution time: \n", (end - start) * 10 ** 3 / 1000, "s")
