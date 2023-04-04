@@ -3,13 +3,6 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\Modules\Automobile - Copy.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\Modules\PythonRepo\workbook.csv">
           <value>
             <Attribute>
@@ -17,7 +10,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\Modules\test - Copy.csv">
+        <entry key="\testproject\workbook.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
