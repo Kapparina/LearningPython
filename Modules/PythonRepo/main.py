@@ -18,7 +18,6 @@ def pandas_csv():  # Reading a CSV file with Pandas...
     print(titanic_df[titanic_df["Age"] < 18].groupby(["Sex", "Pclass"]).mean(numeric_only=True))
 
 
-
 def pyexcel_csv():  # Reading a CSV file with PyExcel...
     sheet = p.get_sheet(file_name="../Automobile.csv")
     sheet.row += ["This", "row", "is", "for", "testing", "purposes"]
