@@ -6,9 +6,17 @@ start = time.time()
 
 
 def pandas_csv():  # Reading a CSV file with Pandas...
-    csvfile = pd.read_csv("workbook.csv")
-    print(csvfile.head(5).dtypes.to_string())
-    csvfile.to_excel("../workbook-temp.xlsx", sheet_name="test", index=False)
+    titanic_df = pd.read_csv("../titanic.csv")
+    print(titanic_df.head(5).dtypes.to_string())
+    # titanic_df.to_excel("../xl-temp.xlsx", index=True)
+    # titanic_df.tail(5).to_excel("../workbook-temp.xlsx", sheet_name="test-sheet", index=False)
+    # xlsx_file = pd.read_excel("../workbook-temp.xlsx")
+    # xlsx_file.to_csv("../csv-temp.csv", index=False)
+    titanic_df.drop(columns=["PassengerId"], inplace=True)  # One way of removing a column...
+    titanic_df = titanic_df.drop(columns=["SibSp"])  # ... and another way of removing a column.
+    print(titanic_df.groupby(["Sex", "Pclass"]).mean(numeric_only=True))
+    print(titanic_df[titanic_df["Age"] < 18].groupby(["Sex", "Pclass"]).mean(numeric_only=True))
+
 
 
 def pyexcel_csv():  # Reading a CSV file with PyExcel...
