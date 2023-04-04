@@ -1,0 +1,9 @@
+https://github.com/Kapparina/LearningPython
+https://github.com/openai/openai-cookbook
+https://www.gitkraken.com/git-client/pricing
+https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+https://www.google.com/search?q=git+pull&oq=git+pull&aqs=edge..69i57j0i512l7j69i60.4712j0j1&sourceid=chrome&ie=UTF-8
+https://github.com/git-guides/git-pull
+https://stackoverflow.com/questions/2816369/git-push-error-remote-rejected-master-master-branch-is-currently-checked
+https://github.com/MrDwarf7/functionalitytesting/blob/main/.gitattributes
+https://github.com/MrDwarf7/functionalitytesting
