@@ -5,7 +5,9 @@ from classes_objects import Student  # Here we have imported the 'Student' class
 
 print("Let's roll the dice!", useful_tools.roll_dice(10))  # This statement uses a function from 'useful_tools.py'.
 
-student1 = Student("Jim", "Business", 3.1, False)
+student1 = Student("Jim", "Business", 3.8, False)
 student2 = Student("Pam", "Art", 2.5, True)
 print(student1.name)
 print(student2.gpa)
+
+print(student1.on_honour_role())
