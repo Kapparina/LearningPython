@@ -63,5 +63,3 @@ course.add_student(s2)  # As this adds the object itself to a list (despite the 
 print(course.students[0].name)  # This prints 'name' attribute of 's1'.
 print(course.add_student(s3))  # This outputs 'False' because the 'max_students' attribute would be exceeded.
 print(course.get_average_grade())  # This averages the 'grade's of 's1' and 's2', as 's3' was not added to the course.
-
-
