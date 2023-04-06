@@ -6,3 +6,10 @@ for employee in employee_file.readlines():  # This will loop over each line and 
     employees.append(employee.split(","))
 employee_file.close()
 print(employees)
+
+
+with open("../MiscFiles/employees.txt") as file:
+    while line := file.readline():
+        print(line.rstrip(",\n"))
+
+    print(file)
