@@ -21,4 +21,5 @@ def run_test(questions):
             score += 1
     print("You got " + str(score) + "/" + str(len(questions)) + " correct.")  # using ', score' is also possible.
 
+
 run_test(questions)
