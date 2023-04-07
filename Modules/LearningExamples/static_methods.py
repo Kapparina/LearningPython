@@ -10,4 +10,5 @@ class Math:
     def pr():
         print("run")
 
+
 Math.pr()  # Notice here the 'pr' static method has been called on the 'Math' class.
