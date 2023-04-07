@@ -54,13 +54,13 @@ expression of variables.
 the 'slice' operator; introducing 'sets'; demonstrating 'enumerate' statements; and a brief introduction to the 
 '.union()' method.
 
-18) [sort_by_key.py](Modules/LearningExamples/sort_by_key.py) - Sorting dictionaries using keys, functions, and the 
+19) [sort_by_key.py](Modules/LearningExamples/sort_by_key.py) - Sorting dictionaries using keys, functions, and the 
 '.sort()' method.
 
-19) [map_and_filter.py](Modules/LearningExamples/map_and_filter.py) - Mapping values to other values and checking if 
+20) [map_and_filter.py](Modules/LearningExamples/map_and_filter.py) - Mapping values to other values and checking if 
 the result of a function is true using 'lambda'.
 
-20) [args_kwargs.py](Modules/LearningExamples/args_kwargs.py) - Using '*args' & '**kwargs' in functions and various 
+21) [args_kwargs.py](Modules/LearningExamples/args_kwargs.py) - Using '*args' & '**kwargs' in functions and various 
 expressions.
 
 ### More niche concepts & tools:
