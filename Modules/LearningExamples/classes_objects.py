@@ -4,3 +4,9 @@ class Student:
         self.major = major  # The 'major' attribute of the object is equal to the 'major' we pass it, akin to the above.
         self.gpa = gpa
         self.is_on_probation = is_on_probation
+
+    def on_honour_role(self):
+        if self.gpa >= 3.5:
+            return True
+        else:
+            return False
