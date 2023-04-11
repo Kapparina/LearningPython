@@ -1,3 +1,5 @@
+import os
+
 employee_file = open("../MiscFiles/employees.txt", "r")  # This will parse the file to the interpreter in 'read' mode.
 # 'Read' and 'Write' modes in the context of the 'open' statement are denoted by 'r' and 'w' respectively.
 print(employee_file.readable())  # The '.readable()' method tells you if the affected file is readable (via 'r' above).
@@ -12,4 +14,8 @@ with open("../MiscFiles/employees.txt") as file:
     while line := file.readline():
         print(line.rstrip(",\n"))
 
-    print(file)
+while os.path.isfile("../MiscFiles/test.txt") is False:
+    print("This is false")
+    break
+else:
+    print("This is true")

@@ -44,6 +44,9 @@ somewhat akin to a basic array.
 
 15) [for_while_else.py](Modules/LearningExamples/for_while_else.py) - Mixing 'for' 'while' loops and 'else' statements.
 
+16) [choose_your_own_adventure.py](Modules/LearningExamples/choose_your_own_adventure.py) - A basic 'choose your own 
+adventure' game.
+
 16) [lambda.py](Modules/LearningExamples/lambda.py) - A simple example of 'lambda' - an anonymous variable declared 
 within an expression.
 
@@ -91,6 +94,11 @@ and tinker with. I don't consider any of these
 
    + [itertools_example.py](Modules/LearningExamples/itertools_example.py) - An example of how to use the 'itertools' 
    module, which focuses on iterative functions.
+
+5) ##### Password manager:
+
+   + [password_manager.py](Modules/LearningExamples/password_manager.py) - An example of a basic password manager - 
+   DO NOT USE THIS TO STORE ANY CREDENTIALS YOU CARE ABOUT.
 
 ### Comprehensive examples:
 This is where I provide more detailed examples of concepts requiring more time and effort for me to grasp fully.
