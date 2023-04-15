@@ -1,8 +1,9 @@
 import time
 import pandas as pd
 import pyexcel as p
+import glob
 
-start = time.time()
+start = time.perf_counter()
 
 
 def pandas_csv():  # Reading a CSV file with Pandas...
@@ -27,6 +28,7 @@ def pyexcel_csv():  # Reading a CSV file with PyExcel...
 
 pandas_csv()
 
-end = time.time()
+end = time.perf_counter()
+print("Execution time: \n", (end - start), "second(s)")
 
-print("Execution time: \n", (end - start) * 10 ** 3 / 1000, "s")
+# print("Execution time: \n", (end - start) * 10 ** 3 / 1000, "s")

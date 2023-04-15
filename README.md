@@ -47,24 +47,27 @@ somewhat akin to a basic array.
 16) [choose_your_own_adventure.py](Modules/LearningExamples/choose_your_own_adventure.py) - A basic 'choose your own 
 adventure' game.
 
-16) [lambda.py](Modules/LearningExamples/lambda.py) - A simple example of 'lambda' - an anonymous variable declared 
+17) [lambda.py](Modules/LearningExamples/lambda.py) - A simple example of 'lambda' - an anonymous variable declared 
 within an expression.
 
-17) [comprehensions.py](Modules/LearningExamples/comprehensions.py) - Using 'for' loops on the same line as the 
+18) [comprehensions.py](Modules/LearningExamples/comprehensions.py) - Using 'for' loops on the same line as the 
 expression of variables.
 
-18) [lists_tuples_sets.py](Modules/LearningExamples/lists_tuples_sets.py) - Using the '.pop()' method on lists; using 
+19) [lists_tuples_sets.py](Modules/LearningExamples/lists_tuples_sets.py) - Using the '.pop()' method on lists; using 
 the 'slice' operator; introducing 'sets'; demonstrating 'enumerate' statements; and a brief introduction to the 
 '.union()' method.
 
-19) [sort_by_key.py](Modules/LearningExamples/sort_by_key.py) - Sorting dictionaries using keys, functions, and the 
+20) [sort_by_key.py](Modules/LearningExamples/sort_by_key.py) - Sorting dictionaries using keys, functions, and the 
 '.sort()' method.
 
-20) [map_and_filter.py](Modules/LearningExamples/map_and_filter.py) - Mapping values to other values and checking if 
+21) [map_and_filter.py](Modules/LearningExamples/map_and_filter.py) - Mapping values to other values and checking if 
 the result of a function is true using 'lambda'.
 
-21) [args_kwargs.py](Modules/LearningExamples/args_kwargs.py) - Using '*args' & '**kwargs' in functions and various 
+22) [args_kwargs.py](Modules/LearningExamples/args_kwargs.py) - Using '*args' & '**kwargs' in functions and various 
 expressions.
+
+23) [slots.py](Modules/LearningExamples/slots.py) - A working slot machine, demonstrating various concepts used 
+previously.
 
 ### More niche concepts & tools:
 Here you will find examples of some useful functions, statements, methods and such that I went out of my way to learn 
