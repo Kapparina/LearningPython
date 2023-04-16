@@ -16,7 +16,7 @@ a: list[int | str] = [5, "apple"]
 b: dict[int | str, int | str] = {key: i for i, key in enumerate(a)}
 print([key for key in b.keys()])
 
-df: dict[str | int, DataFrame] = pd.read_excel("../MiscFiles/random_data.xlsx", sheet_name=None)
+df: dict[str | int, DataFrame] = pd.read_excel("../../MiscFiles/random_data.xlsx", sheet_name=None)
 print("Workbook 'random_data.xlsx' consist of the following sheets: ", list(df.keys()))
 while (sheet_name := input("Please select a sheet to view: ")) != "q":
     try:

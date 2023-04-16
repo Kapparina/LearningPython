@@ -58,7 +58,8 @@ class Dog:  # This is defining a class of object named "Dog".
     def get_age(self):  # This method can be used to retrieve the age of a 'Dog'.
         return self.age
 
-    def add_one(self, x):  # This method is used to demonstrate the versatility of custom-defined methods.
+    @staticmethod
+    def add_one(x):  # This method is used to demonstrate the versatility of custom-defined methods.
         return x + 1
 
     def bark(self):  # This method starts to define the operations able to be performed by a 'Dog'.

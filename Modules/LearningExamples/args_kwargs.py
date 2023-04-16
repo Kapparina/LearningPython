@@ -30,11 +30,11 @@ func1(*args)  # Or I can use '*args' to do this for me.
 print("\n", "Now for more:")
 
 
-def func2(arg1=None, arg2=None, arg3=None):
-    print(arg1, arg2, arg3)
+def func2(arg1=None, arg2=None, arg3=None, arg4=None):
+    print(arg1, arg2, arg3, arg4)
 
 
-kwargs = {"arg2": 2, "arg1": 1, "arg3": 3}
+kwargs = {"arg2": 2, "arg1": 1, "arg3": 3, "arg4": 4}
 print("'kwargs' is a:", type(kwargs), "object")
 
 func2(*kwargs.items())  # I can do this to expand the whole dictionary using the function.

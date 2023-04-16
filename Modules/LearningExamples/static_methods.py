@@ -12,3 +12,5 @@ class Math:
 
 
 Math.pr()  # Notice here the 'pr' static method has been called on the 'Math' class.
+x = Math()
+x.pr()
