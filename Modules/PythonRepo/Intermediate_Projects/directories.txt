@@ -1,0 +1,4 @@
+D:\Documents\GitHub\LearningPython\Modules\PythonRepo
+D:\Documents\GitHub\LearningPython\Modules\PythonRepo/CanvasFiles
+D:\Documents\GitHub\LearningPython\Modules\PythonRepo/IntermediateProjects
+d:/documents

@@ -77,7 +77,7 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls):
-        with open("../items.csv", "r") as f:
+        with open("./items.csv", "r") as f:
             reader = csv.DictReader(f)
             items = list(reader)
 
@@ -85,7 +85,7 @@ class Item:
             # print(item)
             Item(
                 name=str(item.get("name")),
-                price=float(item.get("quantity")),
+                price=float(item.get("price")),
                 quantity=int(item.get("quantity")),
             )
 
