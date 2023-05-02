@@ -3,6 +3,7 @@ import pyperclip as clipboard
 import json
 import textwrap
 import os
+import pandas as pd
 
 SAVED_DATA = f"{os.getcwd()}/clipboard.json"
 
@@ -34,9 +35,9 @@ if len(sys.argv) == 2:
             Available commands include:
             | 'save' or 's' or 'p' (ie: CTRL + V): Saves/pastes the contents of your clipboard.
             | 'load' or 'l' or 'c' (ie: CTRL + C): Loads/copies the value of a specified key to your clipboard.
-            | 'list' or 'a' (ie: 'see all'): Lists the currently stored items.
+            | 'all' or 'a' (ie: 'see all'): Lists the currently stored items.
             | 'delete' or 'd' (ie: 'remove'): Deletes/removes the value at the specified key from storage.
-            | 'clear' or 'w' (ie: 'wipe'): Clears/wipes all data previously stored.
+            | 'wipe' or 'w' (ie: 'wipe'): Clears/wipes all data previously stored.
 
             E.g. if running as executable, wishing to save:
             | <filename (default: sharedclipboard)>.exe save

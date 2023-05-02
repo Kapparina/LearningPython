@@ -6,10 +6,12 @@ import json
 DIGIT_CHECKS = 0
 INDEX_CHECKS = 0
 
+
 class UserFilePath:
     bookmarks: dict = {}
     bookmark_flag: bool = False
     directories_file = f"{os.getcwd()}/directories.json"
+
     def __init__(self, directory=str(), name=str(), extension=str(), index_num=int(), alias=str()):
         self.directory = directory
         self.name = name
@@ -54,15 +56,18 @@ class UserFilePath:
             try:
                 with open(_directories_file, "r") as f:
                     directories = json.load(f)
+                    print("test")
             except json.JSONDecodeError:
                 with open(_directories_file, "r") as f:
                     directories = dict(enumerate(line.strip() for line in f))
+                    print("second test")
 
             for k, v in directories.items():
                 UserFilePath(
-                            directory = v,
-                            index_num = k,
-                            )
+                    directory=v,
+                    index_num=k,
+                )
+        return directories
 
     @classmethod
     def save_instances_to_file(cls, _directories_file, _data):
@@ -109,7 +114,6 @@ def bookmark_check(_bookmark_index, digit_check=DIGIT_CHECKS, index_check=INDEX_
     return _bookmark_index
 
 
-
 def bookmark_selection():
     UserFilePath.instantiate_from_file(UserFilePath.directories_file)
     UserFilePath.bookmark_flag = False
@@ -134,6 +138,8 @@ def bookmark_selection():
         return bookmark_index
     else:
         return UserFilePath.bookmarks.get(int(bookmark_index))
+
+
 # TODO: Complete bookmark functionality.
 # TODO: Fix bookmark index validation.
 def src_file_path():
