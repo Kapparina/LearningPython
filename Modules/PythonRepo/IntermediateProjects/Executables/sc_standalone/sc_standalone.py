@@ -5,6 +5,9 @@ import textwrap
 import os
 import time
 
+tabulate.PRESERVE_WHITESPACE = True
+
+
 SAVED_DATA = f"{os.getcwd()}/clipboard.json"
 
 
@@ -29,7 +32,9 @@ def load_data(_file_path):
 def tabulated_data(_data):
     formatted_data = {"KEY": [key for key in _data.keys()],
                       "VALUE": [value for value in _data.values()]}
-    data_table = tabulate(formatted_data, headers=["KEYS", "VALUES"], tablefmt="grid")
+    data_table = tabulate(formatted_data, headers=["KEYS", "VALUES"],
+                          tablefmt="grid", maxcolwidths=[1, 15, 50],
+                          showindex=range(1, len([item for item in formatted_data["KEY"]]) + 1))
     return data_table
 
 
