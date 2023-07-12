@@ -1,7 +1,10 @@
+from tabulate import tabulate
 import os
 import shutil
 import textwrap
 import json
+
+tabulate.PRESERVE_WHITESPACE = True
 
 DIGIT_CHECKS = 0
 INDEX_CHECKS = 0
@@ -12,12 +15,11 @@ class UserFilePath:
     bookmark_flag: bool = False
     directories_file = f"{os.getcwd()}/directories.json"
 
-    def __init__(self, directory=str(), name=str(), extension=str(), index_num=int(), alias=str()):
+    def __init__(self, directory=str(), name=str(), extension=str(), index_num=int()):
         self.directory = directory
         self.name = name
         self.extension = extension
         self.index_num = index_num
-        self.alias = alias
 
         UserFilePath.bookmarks.update({self.index_num: self.directory})
 
@@ -64,10 +66,14 @@ class UserFilePath:
 
             for k, v in directories.items():
                 UserFilePath(
-                    directory=v,
                     index_num=k,
+                    directory=v,
                 )
-        return directories
+
+        try:
+            return directories
+        except UnboundLocalError:
+            return {}
 
     @classmethod
     def save_instances_to_file(cls, _directories_file, _data):
@@ -124,8 +130,14 @@ def bookmark_selection():
     else:
         print("These are previously bookmarked directories:")
 
-        for index, directory in UserFilePath.bookmarks.items():
-            print(f"| {index} | {directory} |")
+        # for index, directory in UserFilePath.bookmarks.items():
+        #     print(f"| {index} | {directory} |")
+
+        formatted_bookmarks = {"KEY": [key for key in UserFilePath.bookmarks.keys()],
+                               "VALUE": [value for value in UserFilePath.bookmarks.values()]}
+        bookmark_table = tabulate(formatted_bookmarks, headers=["INDEX", "DIRECTORY"],
+                                  tablefmt="grid", maxcolwidths=[1, 60], showindex=False)
+        print(bookmark_table)
 
         bookmark_index = input("\nInput a bookmark's corresponding index number: ")
 

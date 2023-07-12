@@ -1,33 +1,27 @@
 import requests
 import pandas as pd
+import json
+from pathlib import PurePosixPath
+
 
 BASE_URL = "https://rickandmortyapi.com/api/"
-endpoint = "character"
+response = requests.get(BASE_URL)
+# data = response.json()
+# print(json.dumps(data))
 
-def main_request(_url = BASE_URL, _endpoint = endpoint, x = 1):
-    r = requests.get(_url + _endpoint + f"?page={x}")
-    return r.json()
 
-def get_pages(response):
-    return response["info"]["pages"]
+def parse_json(_data):
+    output = json.dumps(_data, indent=4)
+    return output
 
-def parse_json(response):
-    charlist = []
-    for item in response["results"]:
-        char = {
-            "id": item["id"],
-            "name": item["name"],
-            "num_ep": len(item["episode"]),
-        }
 
-        charlist.append(char)
-    return charlist
+print(parse_json(data := response.json()))
 
-mainlist = []
-data = main_request(BASE_URL, endpoint)
-for x in range(1, get_pages(data) + 1):
-    print(x)
-    mainlist.extend(parse_json(main_request(BASE_URL, endpoint, x)))
+my_list = []
+for d in data.values():
+    my_list.append(PurePosixPath(d).name)
 
-mainlist_df = pd.DataFrame(mainlist)
-mainlist_df.to_csv("../../MiscFiles/charlist.csv", index=False)
+for i in my_list:
+
+# table = pd.read_html(f"{BASE_URL}/character")
+# print(table)

@@ -1,41 +1,28 @@
-# Object-Oriented Programming - Inheritance
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+import requests
+import json
+from pathlib import PurePosixPath
 
-class Pet:  # This is a 'general' or 'upper-level' class.
-    def __init__(self, name: str, age: int):
-        self.name = name
-        self.age = age
+BASE_URL = r"https://rickandmortyapi.com/api/"
 
-    def show(self):
-        print(f"I am {self.name}, and I am {self.age} years old.")
-
-    def speak(self):
-        print("I... am confused...")
-
-
-class Cat(Pet):
-    def __init__(self, name, age, colour: str):
-        super().__init__(name, age)
-        self.colour = colour
-
-    def show(self):
-        print(f"I am {self.name}, and I am {self.age} years old. I am {self.colour}.")
-
-    def speak(self):
-        print("Meow")
+@dataclass
+class API:
+    base_url: str
 
 
-class Dog(Pet):
-    def speak(self):
-        print("Bark")
+class Requestor:
+
+    def api_request(self, _base_url: str | API, _endpoint: str):
+        response = requests.get(str(PurePosixPath(_base_url, _endpoint)))
+        return response
 
 
-class Fish(Pet):
-    pass
+class Parser:
+
+    def parse_json(self, data: json):
+        return json.dumps(data, indent=4)
 
 
-bob = Cat("Bob", 5, "red")
-bob.name = "Bobby"
-bob.age = 20
-bob.show()
-frank = Dog("Frank", 10)
-frank.show()
+rick_morty = API("https://rickandmortyapi.com/api/")
+request = 
