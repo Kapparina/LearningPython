@@ -1,0 +1,22 @@
+title = 'Scheduled Tasks'
+
+# [[task]]
+
+#   name = 'Example Task'
+#   file = 'C:\My Folder\My_Task.bat'
+#   frequency = 'once' or 'hourly' or 'every x seconds/minutes' or 'daily' or 'weekly' or 'monthly' or 'yearly'
+#   date = YYYY-MM-DD
+#   day = 'monday' or ['monday', 'wednesday'] or 'weekdays' or 'weekends'
+#   time = HH:MM:SS 24 hour time, e.g. 13:45:00
+
+[[task]]
+
+    name = 'Run Notepad'
+    file = 'C:/temp/notepad.bat'
+    frequency = 'weekly'
+
+[[task]]
+
+    name = 'Run other thing'
+    file = 'C:/temp/notepad.bat'
+    frequency = 'daily'

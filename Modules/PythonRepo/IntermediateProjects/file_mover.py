@@ -178,14 +178,14 @@ def src_file_path():
 
 def src_file_name(src_file):
     print("\nTell me the name of the source file...")
-    src_file.name = input("\tSource file name: ")
+    src_file.file_name = input("\tSource file name: ")
 
-    while os.path.isfile(f"{src_file.directory}/{src_file.name}".casefold()) is False:
+    while os.path.isfile(f"{src_file.directory}/{src_file.file_name}".casefold()) is False:
         print("\nNo such file exists in this directory. Tell me the name of the source file:")
-        src_file.name = input("\tSource file name: ")
+        src_file.file_name = input("\tSource file name: ")
         src_file.character_removal()
 
-    src_file.name, src_file.extension = os.path.splitext(src_file.name)
+    src_file.file_name, src_file.file_extension = os.path.splitext(src_file.file_name)
     UserFilePath.bookmark_flag = False
     return src_file
 
@@ -220,8 +220,8 @@ def dest_file_path(src_file):
         dest_path.name, dest_path.extension = os.path.splitext(dest_path.name)
         dest_path.character_removal()
     elif rename_file.casefold() == "n":
-        dest_path.name = src_file.name
-        dest_path.extension = src_file.extension
+        dest_path.name = src_file.file_name
+        dest_path.extension = src_file.file_extension
     else:
         print("...Opting not to rename file...\n")
 
@@ -231,21 +231,21 @@ def dest_file_path(src_file):
 def move_file(src_file, dest_path):
     print(textwrap.dedent(f"""
         Confirm whether I should move:
-        | {src_file.name}{src_file.extension} | 
+        | {src_file.file_name}{src_file.file_extension} | 
         from: 
         | {src_file.directory} |
         to: 
         | {dest_path.directory} | 
         with the resulting name: 
-        | {dest_path.name}{dest_path.extension} |
+        | {dest_path.file_name}{dest_path.file_extension} |
         
         NOTE: 
-        If a file named {dest_path.name}{dest_path.extension} exists in {dest_path.directory}, it will be replaced.
+        If a file named {dest_path.file_name}{dest_path.file_extension} exists in {dest_path.directory}, it will be replaced.
                         """))
 
     if (confirm_move := input("Y/N: ").casefold()) == "y":
-        final_src_path = f"{src_file.directory}/{src_file.name}{src_file.extension}"
-        final_dest_path = f"{dest_path.directory}/{dest_path.name}{dest_path.extension}"
+        final_src_path = f"{src_file.directory}/{src_file.file_name}{src_file.file_extension}"
+        final_dest_path = f"{dest_path.directory}/{dest_path.file_name}{dest_path.file_extension}"
         shutil.move(final_src_path, final_dest_path)
         print("File moved successfully!")
     elif confirm_move.casefold() == "n":

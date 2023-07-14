@@ -1,6 +1,5 @@
 from time import monotonic
 
-import textual.app
 from textual.app import App, ComposeResult
 from textual.containers import ScrollableContainer
 from textual.reactive import reactive

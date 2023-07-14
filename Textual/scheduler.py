@@ -5,28 +5,58 @@ from pathlib import Path
 from subprocess import Popen, CREATE_NO_WINDOW
 import tomllib as toml
 from dataclasses import dataclass, field
+from textual.app import App, ComposeResult
+from textual.containers import ScrollableContainer
+from textual.reactive import reactive
+from textual.timer import Timer
+from textual.widgets import Button, Header, Footer, Static, Select
+
+@dataclass
+class Config:
+    file: Path | str
+    title: str = field(init=False)
+    config: dict = field(init=False)
+
+    def __post_init__(self) -> None:
+        self.file = Path(self.file).resolve()
+        self.config = self.load()
+        self.title = self.config["title"]
+
+    def load(self) -> dict:
+        try:
+            with open(
+                    file=self.file,
+                    mode="rb") as configuration:
+                config: dict = toml.load(configuration)
+
+            return config
+
+        except toml.TOMLDecodeError:
+            raise "Invalid TOML file - please provide a valid file!"
 
 
 @dataclass
 class Task:
+    name: str
+    frequency: str
     file: Path | str
-    name: str = field(init=False)
-    extension: str = field(init=False)
+    file_name: str = field(init=False)
+    file_extension: str = field(init=False)
 
     def __post_init__(self) -> None:
-        self.file = Path(self.file)
-        self.name = self.file.name
-        self.extension = self.file.suffix
+        self.file = Path(self.file).resolve()
+        self.file_name = self.file.name
+        self.file_extension = self.file.suffix
 
 
 class TaskHandler:
-    handlers = {
+    handlers: dict = {
         "wscript": [".vbs", ".js"],
         "cmd /k": [".bat", ".cmd"],
         "powershell -ExecutionPolicy RemoteSigned": [".ps1"]}
 
     def select_application(self, task: Task):
-        return next((k for k, v in self.handlers.items() if task.extension in v), None)
+        return next((k for k, v in self.handlers.items() if task.file_extension in v), None)
 
     def run(self, task: Task) -> None:
         application = self.select_application(task=task)
@@ -35,9 +65,14 @@ class TaskHandler:
             creationflags=CREATE_NO_WINDOW)
 
 
-class Config:
-    pass
+class SchedulerApp(App):
+    def compose(self) -> ComposeResult:
+        yield Header()
+        yield Footer()
 
 
-job = Task(file="F:/temp/notepad.bat")
-TaskHandler().run(task=job)
+if __name__ == '__main__':
+    app = SchedulerApp()
+    app.run()
+
+
