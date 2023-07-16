@@ -5,11 +5,7 @@ from pathlib import Path
 from subprocess import Popen, CREATE_NO_WINDOW
 import tomllib as toml
 from dataclasses import dataclass, field
-from textual.app import App, ComposeResult
-from textual.containers import ScrollableContainer
-from textual.reactive import reactive
-from textual.timer import Timer
-from textual.widgets import Button, Header, Footer, Static, Select
+
 
 @dataclass
 class Config:
@@ -64,15 +60,5 @@ class TaskHandler:
             f"{application} {task.file}",
             creationflags=CREATE_NO_WINDOW)
 
-
-class SchedulerApp(App):
-    def compose(self) -> ComposeResult:
-        yield Header()
-        yield Footer()
-
-
-if __name__ == '__main__':
-    app = SchedulerApp()
-    app.run()
 
 
